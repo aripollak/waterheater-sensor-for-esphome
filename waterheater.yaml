@@ -1,0 +1,43 @@
+substitutions:
+  name: waterheater
+  io_username: !secret adafruit_io_username
+
+esphome:
+  name: ${name}
+
+esp8266:
+  board: d1_mini
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  password: !secret home_assistant_password
+
+ota:
+  password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: '${name} Fallback Hotspot'
+    password: !secret hotspot_password
+
+captive_portal:
+
+mqtt:
+  broker: 'io.adafruit.com'
+  username: ${io_username}
+  password: !secret adafruit_io_key
+  topic_prefix: '${io_username}/feeds'
+  birth_message:
+    topic: ${io_username}/feeds/${name}_status
+    payload: Online
+  will_message:
+    topic: ${io_username}/feeds/${name}_status
+    payload: Offline
+  log_topic:
