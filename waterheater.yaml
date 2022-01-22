@@ -10,10 +10,10 @@ esp8266:
 
 # Enable logging
 logger:
+  level: VERBOSE
 
-# Enable Home Assistant API
 api:
-  password: !secret home_assistant_password
+  password: !secret local_api_password
 
 ota:
   password: !secret ota_password
@@ -33,11 +33,24 @@ mqtt:
   broker: 'io.adafruit.com'
   username: ${io_username}
   password: !secret adafruit_io_key
+  discovery: false
   topic_prefix: '${io_username}/feeds'
   birth_message:
-    topic: ${io_username}/feeds/${name}-status
+    topic: '${io_username}/feeds/${name}-status'
     payload: Online
   will_message:
-    topic: ${io_username}/feeds/${name}-status
+    topic: '${io_username}/feeds/${name}-status'
     payload: Offline
   log_topic:
+
+dallas:
+  pin: D8
+  update_interval: 30s
+
+sensor:
+  - platform: dallas
+    name: Hot water
+    # With multiple sensors connected to the same pin, better to use address instead of index:
+    # https://esphome.io/components/sensor/dallas.html
+    index: 0
+    state_topic: ${io_username}/feeds/hot_water
