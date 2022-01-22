@@ -35,9 +35,9 @@ mqtt:
   password: !secret adafruit_io_key
   topic_prefix: '${io_username}/feeds'
   birth_message:
-    topic: ${io_username}/feeds/${name}_status
+    topic: ${io_username}/feeds/${name}-status
     payload: Online
   will_message:
-    topic: ${io_username}/feeds/${name}_status
+    topic: ${io_username}/feeds/${name}-status
     payload: Offline
   log_topic:
