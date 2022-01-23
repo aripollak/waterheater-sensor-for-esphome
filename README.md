@@ -20,9 +20,11 @@ This device measures the temperature of the hot water pipe coming out of my wate
 * Connect the USB cable from the ESP board to your computer
 
 ### Software Setup
+* [Install ESPHome](https://esphome.io/guides/installing_esphome.html).
 * Clone this repository from GitHub
 * Open your local directory where you checked out this repository
-* [Install ESPHome](https://esphome.io/guides/installing_esphome.html).
 * Copy [secrets.yaml.example](secrets.yaml.example) to `secrets.yaml` and edit it to fill in your WiFi network information and [Adafruit IO](https://io.adafruit.com/) account information.
 * Run this command: `esphome run waterheater.yaml`
-* Your ESP device should now be sensing temperature and sending it to Adafruit IO!
+* Your ESP device should now be sensing temperature and you should now see it in your feeds on Adafruit IO!
+
+![](images/screenshot.png)
