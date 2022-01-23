@@ -44,7 +44,7 @@ mqtt:
   log_topic:
 
 dallas:
-  pin: D8
+  pin: D5
   update_interval: 30s
 
 sensor:

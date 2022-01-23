@@ -16,11 +16,7 @@ This device measures the temperature of the hot water pipe coming out of my wate
 * Connect the jumper wires to the ESP board like so:
   * Blue: Ground
   * Green: 3V3
-  * Yellow: D8
-
-![](images/esp1.jpg)
-![](images/esp2.jpg)
-
+  * Yellow: D5
 * Connect the USB cable from the ESP board to your computer
 
 ### Software Setup
