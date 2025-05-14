@@ -37,6 +37,7 @@ mqtt:
   broker: 'io.adafruit.com'
   username: ${io_username}
   password: !secret adafruit_io_key
+  discover_ip: false
   discovery: false
   topic_prefix: '${io_username}/feeds'
   birth_message:
