@@ -19,6 +19,7 @@ api:
   reboot_timeout: 0s
 
 ota:
+  platform: esphome
   password: !secret ota_password
 
 wifi:
@@ -49,14 +50,13 @@ mqtt:
     payload: Offline-clean
   log_topic:
 
-dallas:
+one_wire:
+  platform: gpio
   pin: D5
-  update_interval: 30s
 
 sensor:
-  - platform: dallas
+  - platform: dallas_temp
     name: Hot water
-    # With multiple sensors connected to the same pin, better to use address instead of index:
-    # https://esphome.io/components/sensor/dallas.html
-    index: 0
     state_topic: ${io_username}/feeds/hot_water
+    filters:
+      - throttle_average: 30s
