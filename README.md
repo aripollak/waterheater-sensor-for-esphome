@@ -23,7 +23,10 @@ This device measures the temperature of the hot water pipe coming out of my wate
 * [Install ESPHome](https://esphome.io/guides/installing_esphome.html).
 * Clone this repository from GitHub
 * Open your local directory where you checked out this repository
-* Copy [secrets.yaml.example](secrets.yaml.example) to `secrets.yaml` and edit it to fill in your WiFi network information and [Adafruit IO](https://io.adafruit.com/) account information.
+* Copy [secrets.yaml.example](secrets.yaml.example) to `secrets.yaml` and edit the resulting `secrets.yaml` file:
+  * Fill in your WiFi network information and [Adafruit IO](https://io.adafruit.com/) account information.
+  * Replace `"REPLACE_WITH_RANDOM"` with random strings of characters. You can generate random one with this command in your terminal: `openssl rand -base64 32`
+  * Replace `"REPLACE_WITH_RANDOM_32_BYTE_BASE64"` with a random 32 byte base64 string. You can generate one with this command in your terminal: `openssl rand -base64 32`
 * Run this command: `esphome run waterheater.yaml`
 * Your ESP device should now be sensing temperature and you should now see it in your feeds on Adafruit IO!
 

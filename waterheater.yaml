@@ -13,7 +13,8 @@ logger:
   level: VERBOSE
 
 api:
-  password: !secret local_api_password
+  encryption:
+    key: !secret api_encryption_key
   # Disable automatic reboot every 15 minutes if there is no native API connection;
   # comment out next line if using with Home Assistant and the native ESPHome API.
   reboot_timeout: 0s
@@ -23,6 +24,7 @@ ota:
   password: !secret ota_password
 
 wifi:
+  min_auth_mode: WPA2
   ssid: !secret wifi_ssid
   password: !secret wifi_password
 
